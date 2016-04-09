@@ -97,12 +97,9 @@
 		5A7F1BFF1CB803A40099B3A3 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				5A7F1C001CB803A40099B3A3 /* AppDelegate.swift */,
 				5A7F1C021CB803A40099B3A3 /* ViewController.swift */,
 				5A7F1C041CB803A40099B3A3 /* Main.storyboard */,
-				5A7F1C071CB803A50099B3A3 /* Assets.xcassets */,
-				5A7F1C091CB803A50099B3A3 /* LaunchScreen.storyboard */,
-				5A7F1C0C1CB803A50099B3A3 /* Info.plist */,
+				5A7F1C2E1CB8A2720099B3A3 /* Supporting Files */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -123,6 +120,17 @@
 				5A7F1C221CB803A50099B3A3 /* Info.plist */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		5A7F1C2E1CB8A2720099B3A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A7F1C001CB803A40099B3A3 /* AppDelegate.swift */,
+				5A7F1C071CB803A50099B3A3 /* Assets.xcassets */,
+				5A7F1C091CB803A50099B3A3 /* LaunchScreen.storyboard */,
+				5A7F1C0C1CB803A50099B3A3 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
