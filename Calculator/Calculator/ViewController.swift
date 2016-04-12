@@ -13,24 +13,63 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet weak var displayOfCalculationHistory: UILabel!
+    
+    func displayHistory() {
+        if userIsInTheMiddleOfTypingANumber == true{
+            
+            displayOfCalculationHistory.text = displayOfCalculationHistory.text! + display.text!
+        }
+        
+    }
     
     var userIsInTheMiddleOfTypingANumber = false
+    var aDotSignHasBeenInputed = false
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         
         if userIsInTheMiddleOfTypingANumber{
             display.text = display.text! + digit
+            self.displayHistory()
         }
         else{
             display.text = digit
             userIsInTheMiddleOfTypingANumber = true
+            self.displayHistory()
+        }
+    }
+    
+// Task 2: Make sure to input a legal floating point number
+    
+    @IBAction func appendADotSign(sender: UIButton) {
+        if display.text!.rangeOfString(".") != nil {
+            print("dot found")
+            return
+        }
+        else{
+            display.text = display.text! + "."
+            userIsInTheMiddleOfTypingANumber = true
+            self.displayHistory()
         }
         
     }
     
+
+    @IBAction func inputValueOfPi(sender: UIButton) {
+        let valueOfPi = M_PI
+        if userIsInTheMiddleOfTypingANumber == false{
+            display.text = "\(valueOfPi)"
+            userIsInTheMiddleOfTypingANumber = true
+        }
+
+    }
+    
+    
+    
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
+        displayOfCalculationHistory.text = displayOfCalculationHistory.text! + sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
             enter()
         }
@@ -41,6 +80,8 @@ class ViewController: UIViewController {
         case "+": performOperation {$0 + $1}
         case "-": performOperation {$1 - $0}
         case "√": performOperationWithOneArgument {sqrt($0)}
+        case "sin": performOperationWithOneArgument{sin($0)}
+        case "cos": performOperationWithOneArgument{cos($0)}
         default:
             break
         }
@@ -81,6 +122,16 @@ class ViewController: UIViewController {
             userIsInTheMiddleOfTypingANumber = false
         }
     }
+    
+    
+    @IBAction func clearOut(sender: UIButton) {
+        operandStack.removeAll()
+        display.text = "0"
+        displayOfCalculationHistory.text = "0"
+        userIsInTheMiddleOfTypingANumber = false
+    }
+    
+    
     
 }
 
