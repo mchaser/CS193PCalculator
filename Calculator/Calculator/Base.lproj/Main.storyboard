@@ -196,7 +196,6 @@
                                 <state key="normal" title="c"/>
                                 <connections>
                                     <action selector="clearOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLM-oN-Qae"/>
-                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cpP-Ug-6fK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYo-nd-nb2">
@@ -205,7 +204,6 @@
                                 <state key="normal" title="c"/>
                                 <connections>
                                     <action selector="clearOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aT7-7t-woE"/>
-                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNX-kj-vzd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AO4-er-1kJ">
@@ -214,7 +212,6 @@
                                 <state key="normal" title="c"/>
                                 <connections>
                                     <action selector="clearOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AO-L1-SPC"/>
-                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UMw-1B-7Q1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCa-HW-2NQ">
@@ -223,7 +220,6 @@
                                 <state key="normal" title="c"/>
                                 <connections>
                                     <action selector="clearOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HR3-YE-N7g"/>
-                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u8h-oN-TIb"/>
                                 </connections>
                             </button>
                         </subviews>
