@@ -15,10 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var displayOfCalculationHistory: UILabel!
     
-    func displayHistory() {
+    func displayHistory(opToAppend: String) {
         if userIsInTheMiddleOfTypingANumber == true{
             
-            displayOfCalculationHistory.text = displayOfCalculationHistory.text! + display.text!
+            displayOfCalculationHistory.text = displayOfCalculationHistory.text! + opToAppend
         }
         
     }
@@ -31,12 +31,12 @@ class ViewController: UIViewController {
         
         if userIsInTheMiddleOfTypingANumber{
             display.text = display.text! + digit
-            self.displayHistory()
+            self.displayHistory(digit)
         }
         else{
             display.text = digit
             userIsInTheMiddleOfTypingANumber = true
-            self.displayHistory()
+            self.displayHistory(digit)
         }
     }
     
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         else{
             display.text = display.text! + "."
             userIsInTheMiddleOfTypingANumber = true
-            self.displayHistory()
+            self.displayHistory(".")
         }
         
     }
