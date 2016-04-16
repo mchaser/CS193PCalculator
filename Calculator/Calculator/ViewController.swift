@@ -109,6 +109,7 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         operandStack.append(displayValue)
+        self.displayHistory(" ")
         userIsInTheMiddleOfTypingANumber = false
         print("\(operandStack)")
     }
@@ -127,7 +128,7 @@ class ViewController: UIViewController {
     @IBAction func clearOut(sender: UIButton) {
         operandStack.removeAll()
         display.text = "0"
-        displayOfCalculationHistory.text = "0"
+        displayOfCalculationHistory.text = " "
         userIsInTheMiddleOfTypingANumber = false
     }
     
