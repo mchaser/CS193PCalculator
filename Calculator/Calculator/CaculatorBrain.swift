@@ -33,6 +33,16 @@ class CalculatorBrain{
         if !ops.isEmpty{
             var remainingOps = ops
             let op = remainingOps.removeLast()
+            switch op {
+            case .Operand(let operand):
+                return (operand, remainingOps)
+            case .UnaryOperation(_, let operation):
+                let operandEvaluation = evaluate(remainingOps)
+                let operand = operandEvaluation.result
+                return (operation(operand), ...)
+            default:
+                <#code#>
+            }
                         
         }
         return (nil, ops)
