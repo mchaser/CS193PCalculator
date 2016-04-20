@@ -38,10 +38,18 @@ class CalculatorBrain{
                 return (operand, remainingOps)
             case .UnaryOperation(_, let operation):
                 let operandEvaluation = evaluate(remainingOps)
-                let operand = operandEvaluation.result
-                return (operation(operand), ...)
-            default:
-                <#code#>
+                if let operand = operandEvaluation.result {
+                    return (operation(operand), operandEvaluation.remainingOps)
+                }
+            case .BinaryOperation(_, let operation):
+                let op1Evaluation = evaluate(remainingOps)
+                if let oprand1 = op1Evaluation.result {
+                    let op2Evaluation = evaluate(op1Evaluation.remainingOps)
+                    if let oprand2 = op2Evaluation.result {
+                        return (operation(oprand1, oprand2), op2Evaluation.remainingOps)
+                    }
+                }
+                
             }
                         
         }
@@ -49,7 +57,9 @@ class CalculatorBrain{
     }
     
     func evaluate() -> Double? {
-        return nil
+        let (result, remainder) = evaluate(opStack)
+        return result
+        print("\(remainder)")
     }
     
     func pushOperand(valueOfOperand: Double)  {
