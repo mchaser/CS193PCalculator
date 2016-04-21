@@ -23,8 +23,14 @@ class ViewController: UIViewController {
         
     }
     
+    var brain = CalculatorBrain()
+    
+    
     var userIsInTheMiddleOfTypingANumber = false
     var aDotSignHasBeenInputed = false
+    
+    
+    
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -68,50 +74,58 @@ class ViewController: UIViewController {
     
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
-        displayOfCalculationHistory.text = displayOfCalculationHistory.text! + sender.currentTitle!
-        if userIsInTheMiddleOfTypingANumber{
-            enter()
-        }
-
-        switch operation {
-        case "×": performOperation {$0 * $1}
-        case "÷": performOperation {$1 / $0}
-        case "+": performOperation {$0 + $1}
-        case "-": performOperation {$1 - $0}
-        case "√": performOperationWithOneArgument {sqrt($0)}
-        case "sin": performOperationWithOneArgument{sin($0)}
-        case "cos": performOperationWithOneArgument{cos($0)}
-        default:
-            break
-        }
+//        let operation = sender.currentTitle!
+//        displayOfCalculationHistory.text = displayOfCalculationHistory.text! + sender.currentTitle!
+//        if userIsInTheMiddleOfTypingANumber{
+//            enter()
+//        }
+//
+//        switch operation {
+//        case "×": performOperation {$0 * $1}
+//        case "÷": performOperation {$1 / $0}
+//        case "+": performOperation {$0 + $1}
+//        case "-": performOperation {$1 - $0}
+//        case "√": performOperationWithOneArgument {sqrt($0)}
+//        case "sin": performOperationWithOneArgument{sin($0)}
+//        case "cos": performOperationWithOneArgument{cos($0)}
+//        default:
+//            break
+//        }
     }
     
-    func performOperation(operation:(Double,Double) -> Double){
-        if operandStack.count >= 2{
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func performOperationWithOneArgument(operation: Double -> Double){
-        if operandStack.count >= 1{
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
+//    func performOperation(operation:(Double,Double) -> Double){
+//        if operandStack.count >= 2{
+//            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
+//            enter()
+//        }
+//    }
+//    
+//    func performOperationWithOneArgument(operation: Double -> Double){
+//        if operandStack.count >= 1{
+//            displayValue = operation(operandStack.removeLast())
+//            enter()
+//        }
+//    }
     
 //    func performMultiply(op1:Double,op2:Double)->Double{
 //        return op1 * op2
 //    }
     
-    var operandStack = Array<Double>()
+//    var operandStack = Array<Double>()
     
     @IBAction func enter() {
-        operandStack.append(displayValue)
-        self.displayHistory(" ")
+//        operandStack.append(displayValue)
+//        self.displayHistory(" ")
+//        userIsInTheMiddleOfTypingANumber = false
+//        print("\(operandStack)")
+        
         userIsInTheMiddleOfTypingANumber = false
-        print("\(operandStack)")
+        if let result = brain.pushOperand(displayValue){
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
+        
     }
     
     var displayValue:Double{

@@ -58,19 +58,19 @@ class CalculatorBrain{
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        return result
         print("\(remainder)")
+        return result
     }
     
-    func pushOperand(valueOfOperand: Double)  {
+    func pushOperand(valueOfOperand: Double) -> Double? {
         opStack.append(Op.Operand(valueOfOperand))
+        return evaluate()
     }
     
-    func performOperation(symbol: String) {
+    func performOperation(symbol: String) -> Double? {
         if let operation = knownOps[symbol]{
             opStack.append(operation)
+            return evaluate()
         }
-        
     }
-    
 }
